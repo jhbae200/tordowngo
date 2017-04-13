@@ -1,0 +1,13 @@
+    <script>
+        {{if .flash.error}}
+        alert("{{.flash.error}}");
+        {{end}}
+        {{if .flash.success}}
+        alert("{{.flash.success}}");
+        {{end}}
+    </script>
+    {{if eq .RunMode "dev"}}
+        {{template "debug.html" .}}
+    {{end}}
+  </body>
+</html>

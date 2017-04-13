@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Index</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		<link rel="stylesheet" href="../../../../../../Desktop/Nas_torrent/css/theme.css" media="screen" />
+		<style media="screen">
+			th.check, td.check {
+				text-align: center;
+			}
+			th.check label, td.check label{
+				margin-bottom: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Brand</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="#">Work List</a></li>
+						<li><a href="#">Add Work</a></li>
+						<li class="active"><a href="#">Remove Work</a></li>
+						<li><a href="#">Setting</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<div id="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h4>Work List</h4>
+					</div>
+					<div class="col-sm-12">
+						<!-- Board -->
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="check"><label><input id="allCheck" type="checkbox"></label></th>
+									<th>#</th>
+									<th>File Name</th>
+									<th>Status</th>
+									<th>Time Stamp</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="check"><label><input id="check_5" type="checkbox"></label></td>
+									<td>5</td>
+									<td>jelly_2015-07-23.zip</td>
+									<td>대기 중</td>
+									<td>2016-09-14 14:40:33</td>
+								</tr>
+								<tr>
+									<td class="check"><label><input id="check_4" type="checkbox"></label></td>
+									<td>4</td>
+									<td>apache-maven-3.3.9-bin.tar</td>
+									<td>다운 중</td>
+									<td>2016-09-13 20:40:33</td>
+								</tr>
+								<tr>
+									<td class="check"><label><input id="check_3" type="checkbox"></label></td>
+									<td>3</td>
+									<td>Oracle_VM_VirtualBox_Extension_Pack-5.0.20-106931.vbox-extpack</td>
+									<td>다운 완료</td>
+									<td>2016-09-13 18:50:33</td>
+								</tr>
+								<tr>
+									<td class="check"><label><input id="check_2" type="checkbox"></label></td>
+									<td>2</td>
+									<td>ideaIU-2016.2.3.dmg</td>
+									<td>이동 중</td>
+									<td>2016-09-13 18:46:33</td>
+								</tr>
+								<tr>
+									<td class="check"><label><input id="check_1" type="checkbox"></label></td>
+									<td>1</td>
+									<td>ubuntu-16.04-server-amd64.iso</td>
+									<td>이동 완료</td>
+									<td>2016-09-13 18:40:33</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th colspan="5" class="text-right"><button type="button" class="btn btn-primary">삭제</button></th>
+								</tr>
+							</tfoot>
+						</table>
+						<div id="pagination" class="text-center">
+							<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<!-- /.Board -->
+					</div>
+				</div>
+			</div>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog transparent" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Login</h4>
+						</div>
+						<div class="modal-body">
+							<!-- Login form -->
+							<form class="login-form" action="#" method="post">
+								<div class="form-group">
+									<label for="id">Id</label>
+									<input type="text" class="form-control" id="id" placeholder="Id" />
+								</div>
+								<div class="form-group">
+									<label for="password">Password</label>
+									<input type="password" class="form-control" id="password" placeholder="Password" />
+								</div>
+								<input class="hidden" type="submit" name="submit" />
+							</form>
+							<!-- /.Login form -->
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default">Sign in</button>
+							<button type="button" class="btn btn-primary">Login</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.Modal -->
+
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script>
+			/*$('#myModal').modal({
+				backdrop: 'static',
+				keyboard: false
+			});*/
+			$("#allCheck").click(function(){
+				if($("#allCheck").prop("checked")) {
+					$("input[type=checkbox]").prop("checked",true);
+				} else {
+					$("input[type=checkbox]").prop("checked",false);
+				}
+			});
+		</script>
+	</body>
+</html>

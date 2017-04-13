@@ -1,0 +1,6 @@
+div.modal-dialog.transparent {
+
+}
+div.modal-dialog.transparent .modal-content {
+	border-radius: 0;
+}
