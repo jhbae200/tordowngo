@@ -25,7 +25,9 @@ func (c TorrentController) List() revel.Result {
 	}
 	return c.Render(files)
 }
-
+func (c TorrentController) Add() revel.Result {
+	return c.Render()
+}
 func (c TorrentController) Create() revel.Result {
 	dbFiles := make([]model.File, len(c.Params.Files["file"]))
 	var msg string
@@ -43,7 +45,8 @@ func (c TorrentController) Create() revel.Result {
 				break
 			}
 			jobs.Now(task.File{
-				File: dbFiles[idx],
+				File:    dbFiles[idx],
+				UserNum: c.Session["userNum"],
 			})
 		}
 	}

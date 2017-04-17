@@ -9,6 +9,9 @@ GET      /                                       MemberController.Login
 POST     /                                       MemberController.Get
 GET      /sign                                   MemberController.Sign
 POST     /sign                                   MemberController.Create
+GET      /file/list                              TorrentController.List
+GET      /file/add                               TorrentController.Add
+POST     /file                                   TorrentController.Create
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

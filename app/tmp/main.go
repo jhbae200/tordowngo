@@ -5,11 +5,11 @@ import (
 	"flag"
 	"reflect"
 	"github.com/revel/revel"
-	controllers1 "github.com/revel/modules/jobs/app/controllers"
+	controllers0 "github.com/revel/modules/jobs/app/controllers"
 	_ "github.com/revel/modules/jobs/app/jobs"
-	controllers2 "github.com/revel/modules/static/app/controllers"
+	controllers1 "github.com/revel/modules/static/app/controllers"
 	_ "github.com/revel/modules/testrunner/app"
-	controllers0 "github.com/revel/modules/testrunner/app/controllers"
+	controllers2 "github.com/revel/modules/testrunner/app/controllers"
 	_ "tordowngo/app"
 	controllers "tordowngo/app/controllers"
 	model "tordowngo/app/model"
@@ -58,7 +58,46 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers0.TestRunner)(nil),
+	revel.RegisterController((*controllers0.Jobs)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Status",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					28: []string{ 
+						"entries",
+					},
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers1.Static)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Serve",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "ServeModule",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "moduleName", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers2.TestRunner)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
@@ -99,38 +138,30 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers1.Jobs)(nil),
+	revel.RegisterController((*controllers.TorrentController)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
-				Name: "Status",
+				Name: "List",
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					28: []string{ 
-						"entries",
+					26: []string{ 
+						"files",
 					},
 				},
 			},
-			
-		})
-	
-	revel.RegisterController((*controllers2.Static)(nil),
-		[]*revel.MethodType{
 			&revel.MethodType{
-				Name: "Serve",
+				Name: "Add",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
+					29: []string{ 
+					},
 				},
 			},
 			&revel.MethodType{
-				Name: "ServeModule",
+				Name: "Create",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "moduleName", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},
@@ -145,7 +176,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					15: []string{ 
+					16: []string{ 
 					},
 				},
 			},
@@ -154,7 +185,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					19: []string{ 
+					20: []string{ 
 					},
 				},
 			},
@@ -178,32 +209,10 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers.TorrentController)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "List",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-					26: []string{ 
-						"files",
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "Create",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			
-		})
-	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
 		"tordowngo/app/controllers.MemberController.Create": { 
-			23: "userPwConfirm",
 			24: "userPwConfirm",
+			25: "userPwConfirm",
 		},
 		"tordowngo/app/model.(*Member).Validate": { 
 			16: "member.UserId",

@@ -30,45 +30,6 @@ func (_ tGormController) Rollback(
 }
 
 
-type tTestRunner struct {}
-var TestRunner tTestRunner
-
-
-func (_ tTestRunner) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("TestRunner.Index", args).URL
-}
-
-func (_ tTestRunner) Suite(
-		suite string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "suite", suite)
-	return revel.MainRouter.Reverse("TestRunner.Suite", args).URL
-}
-
-func (_ tTestRunner) Run(
-		suite string,
-		test string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "suite", suite)
-	revel.Unbind(args, "test", test)
-	return revel.MainRouter.Reverse("TestRunner.Run", args).URL
-}
-
-func (_ tTestRunner) List(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("TestRunner.List", args).URL
-}
-
-
 type tJobs struct {}
 var Jobs tJobs
 
@@ -110,6 +71,71 @@ func (_ tStatic) ServeModule(
 }
 
 
+type tTestRunner struct {}
+var TestRunner tTestRunner
+
+
+func (_ tTestRunner) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("TestRunner.Index", args).URL
+}
+
+func (_ tTestRunner) Suite(
+		suite string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "suite", suite)
+	return revel.MainRouter.Reverse("TestRunner.Suite", args).URL
+}
+
+func (_ tTestRunner) Run(
+		suite string,
+		test string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "suite", suite)
+	revel.Unbind(args, "test", test)
+	return revel.MainRouter.Reverse("TestRunner.Run", args).URL
+}
+
+func (_ tTestRunner) List(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("TestRunner.List", args).URL
+}
+
+
+type tTorrentController struct {}
+var TorrentController tTorrentController
+
+
+func (_ tTorrentController) List(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("TorrentController.List", args).URL
+}
+
+func (_ tTorrentController) Add(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("TorrentController.Add", args).URL
+}
+
+func (_ tTorrentController) Create(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("TorrentController.Create", args).URL
+}
+
+
 type tMemberController struct {}
 var MemberController tMemberController
 
@@ -146,25 +172,6 @@ func (_ tMemberController) Get(
 	
 	revel.Unbind(args, "member", member)
 	return revel.MainRouter.Reverse("MemberController.Get", args).URL
-}
-
-
-type tTorrentController struct {}
-var TorrentController tTorrentController
-
-
-func (_ tTorrentController) List(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("TorrentController.List", args).URL
-}
-
-func (_ tTorrentController) Create(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("TorrentController.Create", args).URL
 }
 
 

@@ -4,6 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/revel/revel"
 	"golang.org/x/crypto/bcrypt"
+	"strconv"
 	"tordowngo/app/model"
 )
 
@@ -64,5 +65,6 @@ func (c MemberController) Get(member model.Member) revel.Result {
 		c.Flash.Error("아이디나 비밀번호가 틀립니다.")
 		return c.Redirect(MemberController.Login)
 	}
+	c.Session["userNum"] = strconv.FormatInt(int64(result.UserNum), 32)
 	return c.Redirect(TorrentController.List)
 }
