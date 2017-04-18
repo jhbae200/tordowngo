@@ -1,11 +1,12 @@
 package filesave
 
 import (
+	"io"
 	"mime/multipart"
 	"os"
-	"io"
-	"tordowngo/app/model"
 	"strings"
+
+	"tordowngo/app/model"
 )
 
 type Sizer interface {

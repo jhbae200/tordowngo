@@ -2,11 +2,11 @@ package controllers
 
 import (
 	"tordowngo/app/model"
+	"tordowngo/app/task"
+	"tordowngo/app/util/filesave"
 
 	"github.com/revel/modules/jobs/app/jobs"
 	"github.com/revel/revel"
-	"tordowngo/app/task"
-	"tordowngo/app/util/filesave"
 )
 
 type FileInfo struct {

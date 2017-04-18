@@ -4,27 +4,17 @@ import (
 	"database/sql"
 
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-	_ "github.com/mattn/go-sqlite3"
 	"github.com/revel/revel"
 
-	"tordowngo/app/model"
-)
-
-var (
-	Db *gorm.DB
+	"tordowngo/app/database"
 )
 
 func InitDB() {
-	driver := revel.Config.StringDefault("db.driver", "sqlite3")
-	connect_string := revel.Config.StringDefault("db.connect", "tordown.db")
 	var err error
-	Db, err = gorm.Open(driver, connect_string)
+	err = database.InitDB()
 	if err != nil {
 		panic(err)
 	}
-	Db.AutoMigrate(&model.Member{})
-	Db.AutoMigrate(&model.File{})
 }
 
 type GormController struct {
@@ -33,7 +23,7 @@ type GormController struct {
 }
 
 func (c *GormController) Begin() revel.Result {
-	txn := Db.Begin()
+	txn := database.GetDb().Begin()
 
 	if txn.Error != nil {
 		panic(txn.Error)

@@ -1,13 +1,14 @@
 package task
 
 import (
-	"github.com/revel/revel"
 	"os"
+
 	"tordowngo/app/model"
 	"tordowngo/app/util/ftp"
 	utilTorrent "tordowngo/app/util/torrent"
 
 	"github.com/anacrolix/torrent"
+	"github.com/revel/revel"
 	"golang.org/x/time/rate"
 )
 
@@ -17,7 +18,7 @@ type File struct {
 }
 
 func (j File) Run() {
-	revel.INFO.Println("hi! I'm anyc job!")
+	revel.INFO.Println(j.File.FileName + "staring job..")
 	if j.File.FileType == "application/x-bittorrent" {
 		revel.INFO.Println(j.UserNum)
 		config := torrent.Config{}
@@ -36,7 +37,7 @@ func (j File) Run() {
 			revel.ERROR.Panic(err)
 		}
 	}
-	revel.INFO.Println("end my job!")
+	revel.INFO.Println(j.File.FileName + "end job..")
 }
 
 func (j File) move(fileName string) error {

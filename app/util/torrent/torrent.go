@@ -1,10 +1,10 @@
 package torrent
 
 import (
-	"github.com/anacrolix/torrent"
-
-	"github.com/revel/revel"
 	"time"
+
+	"github.com/anacrolix/torrent"
+	"github.com/revel/revel"
 )
 
 func Down(fileName string, config torrent.Config) ([]string, error) {

@@ -1,11 +1,13 @@
 package controllers
 
 import (
+	"strconv"
+
+	"tordowngo/app/model"
+
 	"github.com/jinzhu/gorm"
 	"github.com/revel/revel"
 	"golang.org/x/crypto/bcrypt"
-	"strconv"
-	"tordowngo/app/model"
 )
 
 type MemberController struct {

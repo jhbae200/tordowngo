@@ -1,9 +1,10 @@
 package ftp
 
 import (
+	"os"
+
 	"github.com/revel/revel"
 	"gopkg.in/dutchcoders/goftp.v1"
-	"os"
 )
 
 var con *goftp.FTP
